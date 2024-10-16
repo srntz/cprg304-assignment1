@@ -1,5 +1,11 @@
-/.classpath
-/.project
-
 /bin
+
+.classpath
+.project
+*.eml
+*.iml
+*.userlibraries
+
+/.settings
+/.idea
 
