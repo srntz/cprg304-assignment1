@@ -1,10 +1,14 @@
 package appDomain;
 
+import manager.SortManager;
+
 public class AppDriver
 {
 
 	public static void main( String[] args )
 	{
+		new SortManager(args);
+
 		// TODO Auto-generated method stub
 
 		// refer to demo001 BasicFileIO.java for a simple example on how to
