@@ -10,7 +10,7 @@ public class Sort {
 		//TODO later based on height
 	}
 	
-	public static <T> void bubblesort(Object[] array, Comparator<Shape> c) {
+	public static void bubblesort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -18,7 +18,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void insertionsort(T[] array, Comparator<? super T> c) {
+	public static void insertionsort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -26,7 +26,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void selectionsort(T[] array, Comparator<? super T> c) {
+	public static void selectionsort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -34,7 +34,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void mergesort(T[] array, Comparator<? super T> c) {
+	public static void mergesort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -42,7 +42,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void quicksort(T[] array, Comparator<? super T> c) {
+	public static void quicksort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -50,7 +50,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void mysort(T[] array, Comparator<? super T> c) {
+	public static void mysort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 }
