@@ -9,8 +9,18 @@ import exceptions.CorruptedClassGenerationException;
 import exceptions.InvalidFileFormatException;
 
 /**
- * This class is used for reading a shape data file
+ * ShapeFileReader is used for reading a shape data file
  * and constructing an array of Shape objects
+ * <p>
+ * Example:
+ * <blockquote><pre>
+ *     try {
+ *          ShapeFileReader fileReader = new ShapeFileReader("res/example.txt");
+ *          Shape[] arr = fileReader.ReadFile();
+ *     } catch (Exception e) {
+ *          e.printStackTrace()
+ *     }
+ * </pre></blockquote>
  */
 public class ShapeFileReader {
     private Scanner scanner;
