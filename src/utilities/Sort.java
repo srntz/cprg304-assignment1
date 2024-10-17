@@ -56,7 +56,7 @@ public class Sort {
 	 */
 	public static void quicksort(Shape[] array, Comparator<Shape> comparator) {
 		quicksort(array, comparator, 0, array.length - 1);
-
+	}
 	/**
 	 * Sorts an array using a quicksort algorithm
 	 *
