@@ -38,17 +38,35 @@ public class Sort {
 	public static <T> void mergesort(T[] array, Comparator<? super T> c) {
 		//TODO later
 	}
-	
+
+	/**
+	 * Infers high and low index from an array and passes that to a sorting method
+	 *
+	 * @param array Array to sort
+	 */
 	public static void quicksort(Comparable[] array) {
 		quicksort(array, 0, array.length - 1);
 	}
 
-
+	/**
+	 * Infers high and low index from an array and passes that to a sorting method
+	 *
+	 * @param array Array to sort
+	 * @param comparator An object defining comparison logic
+	 */
 	public static <T> void quicksort(T[] array, Comparator<? super T> comparator) {
 		quicksort(array, comparator, 0, array.length - 1);
 	}
 
-	private static <T> void quicksort(T[] array, Comparator<? super T> comparator,  int low, int high) {
+	/**
+	 * Sorts an array using a quicksort algorithm
+	 *
+	 * @param array Array to sort
+	 * @param comparator An object defining comparison logic
+	 * @param low First index of a slice of the array that would get sorted
+	 * @param high Last index of a slice of the array that would get sorted
+	 */
+	public static <T> void quicksort(T[] array, Comparator<? super T> comparator,  int low, int high) {
 		if (low >= high) {
 			return;
 		}
@@ -77,7 +95,14 @@ public class Sort {
 		quicksort(array, comparator, lp + 1, high);
 	}
 
-	private static void quicksort(Comparable[] array, int low, int high) {
+	/**
+	 * Sorts an array using a quicksort algorithm
+	 *
+	 * @param array Array to sort
+	 * @param low First index of a slice of the array that would get sorted
+	 * @param high Last index of a slice of the array that would get sorted
+	 */
+	public static void quicksort(Comparable[] array, int low, int high) {
 		if(low >= high) {
 			return;
 		}
@@ -106,7 +131,14 @@ public class Sort {
 		quicksort(array, lp + 1, high);
 
 	}
-	
+
+	/**
+	 * Swaps two array elements
+	 *
+	 * @param array Array with the elements
+	 * @param i Index of the first element
+	 * @param j Index of the second element
+	 */
 	private static <T> void swap(T[] array, int i, int j) {
 		T temp = array[j];
 		array[j] = array[i];
