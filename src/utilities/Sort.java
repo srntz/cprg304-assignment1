@@ -11,7 +11,7 @@ public class Sort {
 		//TODO later based on height
 	}
 	
-	public static <T> void bubblesort(Object[] array, Comparator<Shape> c) {
+	public static void bubblesort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -19,7 +19,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void insertionsort(T[] array, Comparator<? super T> c) {
+	public static void insertionsort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -27,7 +27,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void selectionsort(T[] array, Comparator<? super T> c) {
+	public static void selectionsort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 	
@@ -35,7 +35,7 @@ public class Sort {
 		//TODO later
 	}
 	
-	public static <T> void mergesort(T[] array, Comparator<? super T> c) {
+	public static void mergesort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 
@@ -54,9 +54,8 @@ public class Sort {
 	 * @param array Array to sort
 	 * @param comparator An object defining comparison logic
 	 */
-	public static <T> void quicksort(T[] array, Comparator<? super T> comparator) {
+	public static void quicksort(Shape[] array, Comparator<Shape> comparator) {
 		quicksort(array, comparator, 0, array.length - 1);
-	}
 
 	/**
 	 * Sorts an array using a quicksort algorithm
@@ -66,13 +65,13 @@ public class Sort {
 	 * @param low First index of a slice of the array that would get sorted
 	 * @param high Last index of a slice of the array that would get sorted
 	 */
-	public static <T> void quicksort(T[] array, Comparator<? super T> comparator,  int low, int high) {
+	public static void quicksort(Shape[] array, Comparator<Shape> comparator,  int low, int high) {
 		if (low >= high) {
 			return;
 		}
 
 		int pivotIndex = new Random().nextInt(high - low) + low;
-		T pivot = array[pivotIndex];
+		Shape pivot = array[pivotIndex];
 		swap(array, pivotIndex, high);
 
 		int lp = low;
@@ -148,9 +147,8 @@ public class Sort {
 	public static void mysort(Comparable[] array) {
 		//TODO later
 	}
-
-
-	public static <T> void mysort(T[] array, Comparator<? super T> c) {
+	
+	public static void mysort(Object[] array, Comparator<Shape> c) {
 		//TODO later
 	}
 }
