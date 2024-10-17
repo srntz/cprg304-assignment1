@@ -42,22 +42,52 @@ public class Sort {
 	public static void quicksort(Comparable[] array) {
 		quicksort(array, 0, array.length - 1);
 	}
-	
-	public static <T> void quicksort(T[] array, Comparator<? super T> c) {
-		//TODO later
+
+
+	public static <T> void quicksort(T[] array, Comparator<? super T> comparator) {
+		quicksort(array, comparator, 0, array.length - 1);
 	}
 
-	private static void quicksort(Comparable[] array, int lowIndex, int highIndex) {
-		if(lowIndex >= highIndex) {
+	private static <T> void quicksort(T[] array, Comparator<? super T> comparator,  int low, int high) {
+		if (low >= high) {
 			return;
 		}
 
-		int pivotIndex = new Random().nextInt(highIndex - lowIndex) + lowIndex;
-		Comparable pivot = array[pivotIndex];
-		swap(array, pivotIndex, highIndex);
+		int pivotIndex = new Random().nextInt(high - low) + low;
+		T pivot = array[pivotIndex];
+		swap(array, pivotIndex, high);
 
-		int lp = lowIndex;
-		int hp = highIndex;
+		int lp = low;
+		int hp = high;
+
+		while (lp < hp) {
+			while (comparator.compare(array[lp], pivot) != 1 && lp < hp) {
+				lp++;
+			}
+
+			while (comparator.compare(array[hp], pivot) != -1 && lp < hp) {
+				hp--;
+			}
+
+			swap(array, lp, hp);
+		}
+
+		swap(array, lp, high);
+		quicksort(array, comparator, low, lp - 1);
+		quicksort(array, comparator, lp + 1, high);
+	}
+
+	private static void quicksort(Comparable[] array, int low, int high) {
+		if(low >= high) {
+			return;
+		}
+
+		int pivotIndex = new Random().nextInt(high - low) + low;
+		Comparable pivot = array[pivotIndex];
+		swap(array, pivotIndex, high);
+
+		int lp = low;
+		int hp = high;
 
 		while (lp < hp) {
 			while (array[lp].compareTo(pivot) != 1 && lp < hp) {
@@ -71,9 +101,9 @@ public class Sort {
 			swap(array, lp, hp);
 		}
 
-		swap(array, lp, highIndex);
-		quicksort(array, lowIndex, lp - 1);
-		quicksort(array, lp + 1, highIndex);
+		swap(array, lp, high);
+		quicksort(array, low, lp - 1);
+		quicksort(array, lp + 1, high);
 
 	}
 	
