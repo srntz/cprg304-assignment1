@@ -48,12 +48,43 @@ public class Sort {
 		} while (swapped);
 	}
 	
+	/**
+	 * Sorts an array in descending order using insertion sort algorithm.
+	 * Sorts an array of objects that implement the Comparable interface.
+	 * @param array The array to be sorted, containing objects the implement Comparable.
+	 * @see "Insertion Sort Algorithm." Geeksforgeeks. Accessed: Oct. 8, 2024. [Online]. Available: https://www.geeksforgeeks.org/insertion-sort-algorithm/
+	 */
 	public static void insertionsort(Comparable[] array) {
-		//TODO later
+		for (int i = 1; i < array.length; i++) {
+	        Comparable key = array[i];
+	        int j = i - 1;
+	        
+	        while (j >= 0 && array[j].compareTo(key) < 0) {
+	        	array[j + 1] = array[j];
+	            j = j - 1;
+	        }
+	        array[j + 1] = key;
+	    }
 	}
 	
+	/**
+	 * Sorts an array in descending order using insertion sort algorithm.
+	 * Uses a Comparator to compare Shape objects.
+	 * @param array The array of Shape Objects to be sorted.
+	 * @param c The comparator used to compare between Two Shape objects.
+	 * @see "Insertion Sort Algorithm." Geeksforgeeks. Accessed: Oct. 8, 2024. [Online]. Available: https://www.geeksforgeeks.org/insertion-sort-algorithm/
+	 */
 	public static void insertionsort(Object[] array, Comparator<Shape> c) {
-		//TODO later
+		for (int i = 1; i < array.length; i++) {
+	        Object key = array[i];
+	        int j = i - 1;
+	        
+	        while (j >= 0 && c.compare((Shape)array[j], (Shape) key) <  0) {
+	        	array[j + 1] = array[j];
+	            j = j - 1;
+	        }
+	        array[j + 1] = key;
+	    }
 	}
 	
 	public static void selectionsort(Comparable[] array) {
