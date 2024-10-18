@@ -57,13 +57,51 @@ public class Sort {
 	}
 	
 	public static void selectionsort(Comparable[] array) {
-		//TODO later
+		// do not perform sort if array is empty
+		if (array == null || array.length == 0)
+			return;
+
+		// sort starting from first index to the second last index
+		// since it is assumed that the last index is already
+		// the greatest item when everything is properly sorted
+		for (int i = 0; i < array.length - 1; i++) {
+			// look for the least number in the unsorted portion of the array
+			int minItemIndex = i;
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[j].compareTo(array[minItemIndex]) < 0) {
+					minItemIndex = j;
+				}
+			}
+			// swap the current index i to the minimum item in the unsorted array
+			if (i != minItemIndex) {
+				swap(array, i, minItemIndex);
+			}
+		}
 	}
-	
+
 	public static void selectionsort(Object[] array, Comparator<Shape> c) {
-		//TODO later
+		// do not perform sort if array is empty
+		if (array == null || array.length == 0)
+			return;
+
+		// sort starting from first index to the second last index
+		// since it is assumed that the last index is already
+		// the greatest item when everything is properly sorted
+		for (int i = 0; i < array.length - 1; i++) {
+			// look for the least number in the unsorted portion of the array
+			int minItemIndex = i;
+			for (int j = i + 1; j < array.length; j++) {
+				if (c.compare((Shape) array[j], (Shape) array[minItemIndex]) < 0) {
+					minItemIndex = j;
+				}
+			}
+			// swap the current index i to the minimum item in the unsorted array
+			if (i != minItemIndex) {
+				swap(array, i, minItemIndex);
+			}
+		}
 	}
-	
+
 	/**
 	 * Sorts an array using a mergesort algorithm
 	 *
@@ -237,10 +275,55 @@ public class Sort {
 	}
 
 	public static void mysort(Comparable[] array) {
-		//TODO later
+		// Gnome sort - compares adjacent elements and swaps them if they are out of
+		// order
+
+		// do not perform sort if array is empty
+		if (array == null || array.length == 0)
+			return;
+
+		// start at the beginning of the array and continue until end of array is
+		// reached
+		int index = 0;
+
+		while (index < array.length) {
+			// If we're at the beginning of the array, or the current element is
+			// greater than or equal to the previous element, move forward
+			if (index == 0 || array[index].compareTo(array[index - 1]) >= 0) {
+				index++;
+			} else {
+				// If the current element is smaller than the previous element, swap to sort.
+				swap(array, index, index - 1);
+				// Move one step back to check if that area is unsorted
+				index--;
+			}
+		}
+
 	}
-	
+
 	public static void mysort(Object[] array, Comparator<Shape> c) {
-		//TODO later
+		// Gnome sort - compares adjacent elements and swaps them if they are out of
+		// order
+
+		// do not perform sort if array is empty
+		if (array == null || array.length == 0)
+			return;
+
+		// start at the beginning of the array and continue until end of array is
+		// reached
+		int index = 0;
+
+		while (index < array.length) {
+			// If we're at the beginning of the array, or the current element is
+			// greater than or equal to the previous element, move forward
+			if (index == 0 || c.compare((Shape) array[index], (Shape) array[index - 1]) >= 0) {
+				index++;
+			} else {
+				// If the current element is smaller than the previous element, swap to sort.
+				swap(array, index, index - 1);
+				// Move one step back to check if that area is unsorted
+				index--;
+			}
+		}
 	}
 }
