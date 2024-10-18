@@ -1,5 +1,6 @@
 package utilities;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
@@ -7,12 +8,44 @@ import shapes.Shape;
 
 public class Sort {
 	
+	/**
+	 * Sorts an array using a bubblesort algorithm
+	 *
+	 * @param iterate through the array
+	 * @param compare each pair of adjacent elements
+	 * @param swap elements if they're in the wrong order
+	 * @param repeat until there's no swaps needed
+	 */
+	
 	public static void bubblesort(Comparable[] array) {
-		//TODO later based on height
+		boolean swapped;
+		int al = array.length;
+		do {
+			swapped = false;
+			for (int i = 0; i < al - 1; i++) {
+				if (array[i].compareTo(array[i + 1]) > 0) {
+					swap(array, i, i + 1);
+					swapped = true;
+				}
+			}
+			al--; // to reduce the range of comparison after each pass
+		} while (swapped);
 	}
 	
+	
 	public static void bubblesort(Object[] array, Comparator<Shape> c) {
-		//TODO later
+		boolean swapped;
+		int al = array.length;
+		do {
+			swapped = false;
+			for (int i = 0; i < al - 1; i++) {
+				if (c.compare((Shape) array[i], (Shape) array[i + 1]) > 0) {
+					swap(array, i, i + 1);
+					swapped = true;
+				}
+			}
+			al--;
+		} while (swapped);
 	}
 	
 	public static void insertionsort(Comparable[] array) {
@@ -31,12 +64,71 @@ public class Sort {
 		//TODO later
 	}
 	
+	/**
+	 * Sorts an array using a mergesort algorithm
+	 *
+	 * @param divide array to two halves
+	 * @param sort each half
+	 * @param merge the sorted half
+	 */
+	
 	public static void mergesort(Comparable[] array) {
-		//TODO later
+		if (array.length < 2) return;
+		int mid = array.length / 2;
+		Comparable[] left = Arrays.copyOfRange(array, 0, mid);
+		Comparable[] right = Arrays.copyOfRange(array, mid, array.length);
+		
+		mergesort(left);
+		mergesort(right);
+		merge(array, left, right);
 	}
 	
+	// method to merge two sorted arrays into one array
+	private static void merge(Comparable[] array, Comparable[] left, Comparable[] right) {
+		int i = 0, j = 0, k = 0;
+		while (i < left.length && j < right.length) {
+			if (left[i].compareTo(right[j]) <= 0) {
+				array[k++] = left[i++];
+			} else {
+				array[k++] = right[j++];
+			}
+		}
+		while (i < left.length) {
+			array[k++] = right[j++];
+		}
+		while (j < right.length) {
+			array[k++] = right[j++];
+		}
+		
+	}
+
 	public static void mergesort(Object[] array, Comparator<Shape> c) {
-		//TODO later
+		if (array.length < 2) return;
+		int mid = array.length / 2;
+		Object[] left = Arrays.copyOfRange(array, 0, mid);
+		Object[] right = Arrays.copyOfRange(array, mid, array.length);
+		
+		mergesort(left, c);
+		mergesort(right, c);
+		merge(array, left, right, c);
+	}
+	
+	// merge two sorted arrays into one using custom comparator
+	public static void merge(Object[] array, Object[] left, Object[] right, Comparator<Shape> c) {
+		int i = 0, j = 0, k = 0;
+		while (i < left.length && j < right.length) {
+			if (c.compare((Shape) left[i], (Shape) right[j]) <= 0) {
+				array[k++] = left[i++];
+			} else {
+				array[k++] = right[i++];
+			}
+		}
+		while (i < left.length) {
+			array[k++] = left[i++];
+		}
+		while (j < right.length) {
+			array[k++] = right[j++];
+		}
 	}
 
 	/**
