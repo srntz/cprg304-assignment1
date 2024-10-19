@@ -9,12 +9,9 @@ import shapes.Shape;
 public class Sort {
 	
 	/**
-	 * Sorts an array using a bubblesort algorithm
+	 * Sorts an array using the Bubble Sort algorithm
 	 *
-	 * @param iterate through the array
-	 * @param compare each pair of adjacent elements
-	 * @param swap elements if they're in the wrong order
-	 * @param repeat until there's no swaps needed
+	 * @param array Array that would get sorted
 	 */
 	
 	public static void bubblesort(Comparable[] array) {
@@ -31,8 +28,13 @@ public class Sort {
 			al--; // to reduce the range of comparison after each pass
 		} while (swapped);
 	}
-	
-	
+
+	/**
+	 * Sorts an array using the Bubble Sort algorithm
+	 *
+	 * @param array An Array that would get sorted
+	 * @param c An object defining comparison logic
+	 */
 	public static void bubblesort(Object[] array, Comparator<Shape> c) {
 		boolean swapped;
 		int al = array.length;
@@ -52,7 +54,6 @@ public class Sort {
 	 * Sorts an array in descending order using insertion sort algorithm.
 	 * Sorts an array of objects that implement the Comparable interface.
 	 * @param array The array to be sorted, containing objects the implement Comparable.
-	 * @see "Insertion Sort Algorithm." Geeksforgeeks. Accessed: Oct. 8, 2024. [Online]. Available: https://www.geeksforgeeks.org/insertion-sort-algorithm/
 	 */
 	public static void insertionsort(Comparable[] array) {
 		for (int i = 1; i < array.length; i++) {
@@ -72,7 +73,6 @@ public class Sort {
 	 * Uses a Comparator to compare Shape objects.
 	 * @param array The array of Shape Objects to be sorted.
 	 * @param c The comparator used to compare between Two Shape objects.
-	 * @see "Insertion Sort Algorithm." Geeksforgeeks. Accessed: Oct. 8, 2024. [Online]. Available: https://www.geeksforgeeks.org/insertion-sort-algorithm/
 	 */
 	public static void insertionsort(Object[] array, Comparator<Shape> c) {
 		for (int i = 1; i < array.length; i++) {
@@ -86,7 +86,11 @@ public class Sort {
 	        array[j + 1] = key;
 	    }
 	}
-	
+
+	/**
+	 * Sorts an array using the Selection Sort algorithm
+	 * @param array An Array which would get sorted
+	 */
 	public static void selectionsort(Comparable[] array) {
 		// do not perform sort if array is empty
 		if (array == null || array.length == 0)
@@ -110,6 +114,11 @@ public class Sort {
 		}
 	}
 
+	/**
+	 * Sorts an array using the Selection Sort algorithm
+	 * @param array An array which would get sorted
+	 * @param c Object that defines comparison logic
+	 */
 	public static void selectionsort(Object[] array, Comparator<Shape> c) {
 		// do not perform sort if array is empty
 		if (array == null || array.length == 0)
@@ -136,11 +145,8 @@ public class Sort {
 	/**
 	 * Sorts an array using a mergesort algorithm
 	 *
-	 * @param divide array to two halves
-	 * @param sort each half
-	 * @param merge the sorted half
+	 * @param array Array that would get sorted
 	 */
-	
 	public static void mergesort(Comparable[] array) {
 		if (array.length < 2) return;
 		int mid = array.length / 2;
@@ -171,6 +177,12 @@ public class Sort {
 		
 	}
 
+	/**
+	 * Sorts an array using a mergesort algorithm
+	 *
+	 * @param array Array that would get sorted
+	 * @param c Object that defines the comparison logic
+	 */
 	public static void mergesort(Object[] array, Comparator<Shape> c) {
 		if (array.length < 2) return;
 		int mid = array.length / 2;
@@ -305,6 +317,11 @@ public class Sort {
 		array[i] = temp;
 	}
 
+	/**
+	 * Sorts an array using the Gnome Sort algorithm
+	 *
+	 * @param array Array that would get sorted
+	 */
 	public static void mysort(Comparable[] array) {
 		// Gnome sort - compares adjacent elements and swaps them if they are out of
 		// order
@@ -332,6 +349,12 @@ public class Sort {
 
 	}
 
+	/**
+	 * Sorts an array using the Gnome Sort algorithm
+	 *
+	 * @param array An array that would get sorted
+	 * @param c An object defining comparison logic
+	 */
 	public static void mysort(Object[] array, Comparator<Shape> c) {
 		// Gnome sort - compares adjacent elements and swaps them if they are out of
 		// order
